@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaaS Style Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="dark-theme">
+    <!-- 3D Background Elements -->
+    <div class="bg-wrapper">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar glassmorphism">
+        <div class="nav-container">
+            <div class="logo">Port<span class="gradient-text">folio</span>.</div>
+
+            <div class="nav-links">
+                <button class="nav-link active" data-target="home">Home</button>
+                <button class="nav-link" data-target="about">About</button>
+                <button class="nav-link" data-target="projects">Projects</button>
+                <button class="nav-link" data-target="certifications">Certifications</button>
+                <button class="nav-link" data-target="education">Education</button>
+                <button class="nav-link" data-target="contact">Contact</button>
+            </div>
+
+            <div class="nav-controls">
+                <button id="theme-toggle" class="icon-btn tilt-effect">
+                    <i class="fas fa-sun"></i>
+                </button>
+                <button id="mobile-menu-btn" class="icon-btn mobile-only">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu glassmorphism">
+        <button class="nav-link" data-target="home">Home</button>
+        <button class="nav-link" data-target="about">About</button>
+        <button class="nav-link" data-target="projects">Projects</button>
+        <button class="nav-link" data-target="certifications">Certifications</button>
+        <button class="nav-link" data-target="education">Education</button>
+        <button class="nav-link" data-target="contact">Contact</button>
+    </div>
+
+    <!-- Main Content Container -->
+    <main id="main-container" class="main-container">
+        <!-- Content gets injected here -->
+    </main>
+
+    <!-- Modal -->
+    <div id="modal" class="modal-overlay">
+        <div class="modal-content glassmorphism">
+            <button id="close-modal" class="icon-btn close-btn"><i class="fas fa-times"></i></button>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Templates for Sections -->
+    <template id="tpl-home">
+        <div class="section-content hero-section">
+            <div class="hero-text animate-slide-up">
+                <h1 class="main-heading">Building <br><span class="gradient-text type-effect">Digital Experiences</span>
+                </h1>
+                <p class="subtitle">I craft high-end, responsive, and futuristic web applications using modern
+                    technologies.</p>
+                <div class="action-buttons">
+                    <button class="btn btn-primary glow-effect nav-trigger" data-target="projects">View
+                        Projects</button>
+                    <button class="btn btn-secondary nav-trigger" data-target="contact">Contact Me</button>
+                </div>
+            </div>
+            <div class="hero-visual animate-slide-left tilt-element">
+                <div class="glass-card visual-card">
+                    <i class="fas fa-code abstract-icon"></i>
+                    <div class="floating-badge badge-1 glassmorphism"><i class="fab fa-js"></i> Vanilla JS</div>
+                    <div class="floating-badge badge-2 glassmorphism"><i class="fas fa-code"></i> C++</div>
+                    <div class="floating-badge badge-3 glassmorphism"><i class="fab fa-html5"></i> HTML5</div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="tpl-about">
+        <div class="section-content about-section animate-fade">
+            <h2 class="section-title"><span class="gradient-text">About</span> Me</h2>
+            <div class="about-grid">
+                <div class="about-image-container tilt-element">
+                    <div class="about-img glassmorphism">
+                        <img src="Profile Pic .jpeg" alt="Sumit Mali"
+                            style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius);">
+                    </div>
+                </div>
+                <div class="about-info">
+                    <p class="bio">I'm Sumit Mali, a curious engineer exploring both hardware and software domains. I
+                        enjoy learning how systems work from the ground up and applying that knowledge to build
+                        practical, efficient solutions.</p>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-info"><span>JavaScript</span><span>95%</span></div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span>CSS / SCSS</span><span>90%</span></div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span>HTML5</span><span>98%</span></div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 98%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span>C++</span><span>85%</span></div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="tpl-projects">
+        <div class="section-content projects-section animate-scale">
+            <h2 class="section-title"><span class="gradient-text">Featured</span> Projects</h2>
+            <div class="cards-grid">
+                <div class="project-card glassmorphism tilt-element" style="position: relative;">
+                    <div class="featured-badge"
+                        style="position: absolute; top: -10px; left: -10px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; box-shadow: 0 4px 15px rgba(229, 9, 20, 0.4); z-index: 10; animation: floatCard 3s infinite;">
+                        ⭐ Featured</div>
+                    <div class="card-img"><i class="fas fa-search"></i></div>
+                    <div class="card-body">
+                        <h3>Resume Fit</h3>
+                        <p>An AI-powered web application that helps job seekers optimize their resumes in real-time.</p>
+                        <div class="tech-stack" style="margin-top: 15px; margin-bottom: 15px;">
+                            <span class="badge">HTML</span>
+                            <span class="badge">CSS</span>
+                            <span class="badge">JS</span>
+                            <span class="badge">Python</span>
+                        </div>
+                        <div class="project-links" style="display: flex; gap: 10px; margin-top: auto; flex-wrap: wrap;">
+                            <button class="btn btn-outline view-details" data-id="p1"
+                                style="flex: 1; padding: 8px; font-size: 0.85rem;">Details</button>
+                            <a href="https://github.com/sumitmali001/ResumeFit" target="_blank" class="btn btn-outline"
+                                style="flex: 1; padding: 8px; font-size: 0.85rem; text-align: center;" title="GitHub"><i
+                                    class="fab fa-github"></i></a>
+                            <a href="https://resume-fit-analyser.vercel.app/" target="_blank" class="btn btn-outline"
+                                style="flex: 1; padding: 8px; font-size: 0.85rem; text-align: center;" title="Site"><i
+                                    class="fas fa-globe"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card glassmorphism tilt-element">
+                    <div class="card-img"><i class="fas fa-microchip"></i></div>
+                    <div class="card-body">
+                        <h3>CPU Scheduler Solver</h3>
+                        <p>A Python-based graphical simulator that provides an interactive way to understand CPU
+                            scheduling algorithms.</p>
+                        <div class="tech-stack" style="margin-top: 15px; margin-bottom: 15px;">
+                            <span class="badge">Python 3</span>
+                            <span class="badge">QtPy</span>
+                            <span class="badge">Matplotlib</span>
+                        </div>
+                        <button class="btn btn-outline view-details" data-id="p2"
+                            style="margin-top: auto; padding: 8px; font-size: 0.85rem; width: 100%;">View
+                            Details</button>
+                    </div>
+                </div>
+                <div class="project-card glassmorphism tilt-element">
+                    <div class="card-img"><i class="fas fa-memory"></i></div>
+                    <div class="card-body">
+                        <h3>1612x Microprocessor</h3>
+                        <p>A custom-built 16-bit CPU designed and implemented using Logisim for a Computer Organization
+                            and Architecture project.</p>
+                        <div class="tech-stack" style="margin-top: 15px; margin-bottom: 15px;">
+                            <span class="badge">Logisim</span>
+                            <span class="badge">Digital Design</span>
+                        </div>
+                        <button class="btn btn-outline view-details" data-id="p3"
+                            style="margin-top: auto; padding: 8px; font-size: 0.85rem; width: 100%;">View
+                            Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="tpl-certifications">
+        <div class="section-content certifications-section animate-fade">
+            <h2 class="section-title"><span class="gradient-text">My</span> Certifications</h2>
+            <div class="cards-grid">
+                <div class="cert-card glassmorphism tilt-element">
+                    <i class="fas fa-certificate cert-icon"></i>
+                    <h3>TCS iON Career Edge - Young Professional</h3>
+                    <p>TCS iON</p>
+                    <span class="date">Issued Feb 2026</span>
+                    <p style="font-size: 0.85rem; margin-top: 10px; opacity: 0.8;">Credential ID: 240640-29921790-1016
+                    </p>
+                    <a href="TCS.pdf" target="_blank" class="btn btn-outline"
+                        style="display: inline-block; margin-top: 20px; padding: 10px 20px; font-size: 0.9rem;">View
+                        PDF</a>
+                </div>
+                <div class="cert-card glassmorphism tilt-element">
+                    <i class="fas fa-shield-alt cert-icon"></i>
+                    <h3>Ethical Hacking (Gold Elite Certification)</h3>
+                    <p>NPTEL</p>
+                    <span class="date">Issued Nov 2025</span>
+                    <p style="font-size: 0.85rem; margin-top: 10px; opacity: 0.8;">Credential ID: NPTEL25CS142S950600267
+                    </p>
+                    <a href="NPTEL.pdf" target="_blank" class="btn btn-outline"
+                        style="display: inline-block; margin-top: 20px; padding: 10px 20px; font-size: 0.9rem;">View
+                        PDF</a>
+                </div>
+                <div class="cert-card glassmorphism tilt-element">
+                    <i class="fas fa-microchip cert-icon"></i>
+                    <h3>MATLAB Onramp</h3>
+                    <p>MathWorks</p>
+                    <a href="Matlab OnRamp Certificate.pdf" target="_blank" class="btn btn-outline"
+                        style="display: inline-block; margin-top: 20px; padding: 10px 20px; font-size: 0.9rem;">View
+                        PDF</a>
+                </div>
+                <div class="cert-card glassmorphism tilt-element">
+                    <i class="fas fa-wave-square cert-icon"></i>
+                    <h3>Signal Generation and Resampling</h3>
+                    <p>MathWorks</p>
+                    <a href="Signal Generation and Resampling Certificate.pdf" target="_blank" class="btn btn-outline"
+                        style="display: inline-block; margin-top: 20px; padding: 10px 20px; font-size: 0.9rem;">View
+                        PDF</a>
+                </div>
+                <div class="cert-card glassmorphism tilt-element">
+                    <i class="fas fa-satellite-dish cert-icon"></i>
+                    <h3>Signal Processing Onramp</h3>
+                    <p>MathWorks</p>
+                    <a href="Signal Processing OnRamp Certificate.pdf" target="_blank" class="btn btn-outline"
+                        style="display: inline-block; margin-top: 20px; padding: 10px 20px; font-size: 0.9rem;">View
+                        PDF</a>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="tpl-education">
+        <div class="section-content education-section animate-slide-up">
+            <h2 class="section-title"><span class="gradient-text">Education</span> Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot glassmorphism"></div>
+                    <div class="timeline-content glassmorphism">
+                        <h3>Bachelor of Technology (ICT)</h3>
+                        <h4>Pandit Deendayal Energy University</h4>
+                        <span class="date">Jul 2023 - Jun 2027</span>
+                        <p style="margin-top: 10px;">Information & Communication Technology , Current CGPA : 9.82</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot glassmorphism"></div>
+                    <div class="timeline-content glassmorphism">
+                        <h3>11th & 12th Sci (PCM)</h3>
+                        <h4>Maharishi Sandipani School</h4>
+                        <span class="date">2021 - 2023</span>
+                        <p style="margin-top: 10px;">Scored 96%ile Overall in 12th Board & having 90%ile in PCM.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="tpl-contact">
+        <div class="section-content contact-section animate-scale">
+            <h2 class="section-title">Let's <span class="gradient-text">Connect</span></h2>
+            <div class="contact-wrapper">
+                <div class="contact-info glassmorphism tilt-element">
+                    <h3>Get in Touch</h3>
+                    <p>Have a project in mind or want to discuss opportunities? Feel free to reach out.</p>
+                    <div class="info-item" style="margin-top: 30px;">
+                        <i class="fas fa-envelope"></i>
+                        <span>sumitmali7799@gmail.com</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Ahmedabad, Gujarat, India</span>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/sumitmali001" target="_blank" rel="noopener noreferrer"><i
+                                class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/sumitmali/" target="_blank" rel="noopener noreferrer"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="contact-visual tilt-element">
+                    <div class="visual-grid">
+                        <div class="v-card v-card-1 glassmorphism">
+                            <i class="fas fa-terminal"></i>
+                            <span>Clean Code</span>
+                        </div>
+                        <div class="v-card v-card-2 glassmorphism">
+                            <i class="fas fa-rocket"></i>
+                            <span>Fast Performance</span>
+                        </div>
+                        <div class="v-card v-card-3 glassmorphism">
+                            <i class="fas fa-paint-brush"></i>
+                            <span>Modern Design</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
